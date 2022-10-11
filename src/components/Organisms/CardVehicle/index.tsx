@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { BiMap } from 'react-icons/bi'
+import {
+  BiMap,
+  BiCalendarAlt,
+  BiGitCompare,
+  BiRocket,
+  BiCopyAlt,
+  BiWrench,
+} from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
@@ -69,17 +76,30 @@ export function CardVehicle({ car, filteredCars, setCars, myAds }: any) {
         {car.path && (
           <S.CarImage src={car.url} alt={`Imagem ${car.brand} ${car.model}`} />
         )}
-        <S.CarPrice>Preço: R$ {car.price}</S.CarPrice>
+        <S.CarPrice>R${car.price}</S.CarPrice>
         <S.InfoCar>
-          <BiMap style={{ fontSize: 20 }} />
+          <BiMap style={{ fontSize: 20, marginRight: '5px' }} />
           {car.user_city}, {car.user_state}
         </S.InfoCar>
-        <S.InfoCar>Versão: {car.version}</S.InfoCar>
-        <S.InfoCar>Câmbio: {car.gear}</S.InfoCar>
-        <S.InfoCar>Ano: {car.year}</S.InfoCar>
-        <S.InfoCar>KM: {car.formatedKm}</S.InfoCar>
+        <S.InfoCar>
+          <BiWrench style={{ fontSize: 20, marginRight: '5px' }} />
+          {car.version}
+        </S.InfoCar>
+        <S.InfoCar>
+          <BiGitCompare style={{ fontSize: 20, marginRight: '5px' }} />
+          {car.gear}
+        </S.InfoCar>
+        <S.InfoCar>
+          <BiCalendarAlt style={{ fontSize: 20, marginRight: '5px' }} />
+          {car.year}
+        </S.InfoCar>
+        <S.InfoCar>
+          <BiRocket style={{ fontSize: 20, marginRight: '5px' }} />
+          {car.formatedKm}
+        </S.InfoCar>
 
         <S.OpenDescription onClick={() => handleOpenLink(car)}>
+          <BiCopyAlt style={{ fontSize: 15, marginRight: '5px' }} />
           Mais detalhes
         </S.OpenDescription>
 
