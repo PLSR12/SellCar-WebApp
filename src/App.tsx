@@ -1,6 +1,7 @@
 import AppProvider from 'hooks'
 import React from 'react'
 import Routes from 'routes'
+import GlobalStyle from 'common/styles/globalStyle'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <AppProvider>
         <Routes />
       </AppProvider>
+      <GlobalStyle />
     </>
   )
 }
