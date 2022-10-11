@@ -6,8 +6,8 @@ interface CategoryActive {
 
 export const ItemsCategory = styled.div<CategoryActive>`
   width: 100%;
-  background: #bdc3c7;
-  border: ${(props) => (props.isActiveCategory ? '3px solid #5c95ff' : 'none')};
+  background: #f7f7f7ff;
+  border: ${(props) => (props.isActiveCategory ? '3px solid #620dd9' : 'none')};
   display: flex;
   flex-direction: column;
   align-items: center;
