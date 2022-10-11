@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 0 20px 50px 20px;
 
   h1 {
-    color: #fff;
+    color: #000;
     text-align: center;
     padding: 40px 0;
   }
