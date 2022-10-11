@@ -54,8 +54,8 @@ export function Home() {
       setFilteredCars(cars)
     } else {
       const newFilteredCars = cars.filter(
-        (product: { category_id: number }) =>
-          product.category_id === activeCategory
+        (car: { category_id: number }) =>
+          car.category_id === activeCategory
       )
 
       setFilteredCars(newFilteredCars)
