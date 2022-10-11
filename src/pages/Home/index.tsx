@@ -37,7 +37,7 @@ export function Home() {
       ]
 
       newCategories.sort(({ x, y }: any) => {
-        return x.id - y.id
+        return x?.id - y?.id
       })
 
       setCategories(newCategories)
