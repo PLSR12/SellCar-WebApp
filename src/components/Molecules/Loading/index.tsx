@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LoadingGif from 'assets/loading-unscreen.gif'
+import LoadingGif from 'common/assets/loading-unscreen.gif'
 import * as S from './styles'
 
 export const Loading = ({ isVehicle }: any) => {
