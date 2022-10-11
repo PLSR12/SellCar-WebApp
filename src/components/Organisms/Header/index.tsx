@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
-import HeaderImage from 'common/assets/image-header.png'
 import { useUser } from 'hooks/UserContext'
 import * as S from './styles'
 
@@ -16,17 +14,14 @@ export const Header = () => {
     navigate('/login')
   }
 
-  const goPageVehicleRegister = () => {
-    navigate('/anunciar')
-  }
-
   return (
     <S.Container>
-      <Toaster />
+      <div className="title-container">
+        <h1>SELL</h1>
+        <h2> CAR</h2>
+      </div>
 
-      <h1>SELL CAR</h1>
-
-      <S.DivSearch onClick={() => navigate('../pesquisar-veiculo')}>
+      <S.DivSearch onClick={() => navigate('/pesquisar-veiculo')}>
         <S.SearchIcon />
         <S.TextHeader>
           {window.innerWidth > 940 ? 'Pesquisar por veículos' : ''}
@@ -48,7 +43,7 @@ export const Header = () => {
             {modalUser && (
               <S.ModalUser>
                 <S.Ul>
-                  <li onClick={goPageVehicleRegister}>Anunciar</li>
+                  <li onClick={() => navigate('/anunciar')}>Anunciar</li>
                   <li onClick={() => navigate('/meus-anuncios')}>
                     Meus Anúncios
                   </li>
@@ -64,7 +59,7 @@ export const Header = () => {
           </>
         ) : (
           <S.TextHeader>
-            Faça <span onClick={() => navigate('/login')}>Login</span> ou{' '}
+            Faça <span onClick={() => navigate('/login')}>Login</span> ou
             <span onClick={() => navigate('/cadastro')}>Registre-se</span>
           </S.TextHeader>
         )}
