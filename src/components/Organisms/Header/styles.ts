@@ -6,19 +6,28 @@ export const Container = styled.div`
   height: 60px;
   padding: 0 10px;
   overflow: auto;
-  background: #5c95ff;
+  background: #620dd9;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-
   border: none;
   outline: none;
 
-  h1 {
-    font-size: 26px;
-    cursor: pointer;
-    color: #fff;
-    margin-left: 15px;
+  .title-container {
+    display: grid;
+    grid-template-columns: 60px 50px;
+    margin-left: 30px;
+
+    h1 {
+      font-size: 26px;
+      cursor: pointer;
+      color: #92d95f;
+    }
+    h2 {
+      font-size: 26px;
+      cursor: pointer;
+      color: #f27405;
+    }
   }
 `
 
@@ -72,6 +81,7 @@ export const LogoutIcon = styled(MdLogout)`
 `
 
 export const ContainerText = styled.div`
+  margin-right: 30px;
   display: flex;
   color: #fff;
   align-items: center;
@@ -126,7 +136,7 @@ export const ModalUser = styled.div`
   top: 59px;
   right: 0;
   position: absolute;
-  background-color: #5c95ff;
+  background-color: #620dd9;
   animation: slideYModal 500ms;
   animation-direction: alternate;
   overflow: hidden;
@@ -165,7 +175,7 @@ export const Ul = styled.ul`
     transition: all 150ms;
 
     &:hover {
-      background-color: #5c95cc;
+      background-color: #f27405;
     }
   }
 `
