@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
-import HeaderImage from 'assets/common/image-header.png'
+import HeaderImage from 'common/assets/image-header.png'
 import { useUser } from 'hooks/UserContext'
 import * as S from './styles'
 
@@ -14,7 +14,6 @@ export const Header = () => {
   const logoutUser = () => {
     logout()
     navigate('/login')
-    window.location.reload()
   }
 
   const goPageVehicleRegister = () => {
@@ -25,11 +24,7 @@ export const Header = () => {
     <S.Container>
       <Toaster />
 
-      <S.ImageHeader
-        src={HeaderImage}
-        alt="Imagem do Menu"
-        onClick={() => navigate('/')}
-      />
+      <h1>SELL CAR</h1>
 
       <S.DivSearch onClick={() => navigate('../pesquisar-veiculo')}>
         <S.SearchIcon />

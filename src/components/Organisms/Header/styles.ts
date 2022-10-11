@@ -1,5 +1,5 @@
-import { MdPersonOutline, MdLogout, MdSearch } from "react-icons/md"
-import styled from "styled-components"
+import { MdPersonOutline, MdLogout, MdSearch } from 'react-icons/md'
+import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
@@ -13,6 +13,13 @@ export const Container = styled.div`
 
   border: none;
   outline: none;
+
+  h1 {
+    font-size: 26px;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 15px;
+  }
 `
 
 export const ImageHeader = styled.img`
@@ -26,6 +33,7 @@ export const ImageHeader = styled.img`
 
 export const SearchIcon = styled(MdSearch)`
   font-size: 25px;
+  color: #fff;
 `
 
 export const DivSearch = styled.div`
@@ -36,8 +44,8 @@ export const DivSearch = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  background: #dbdbdb;
-  color: #000;
+  background: transparent;
+  color: #fff;
   transition: all 150ms;
   cursor: pointer;
 
