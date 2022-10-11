@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const ErrorMessageStyles = styled.p`
-  color: #cc1717;
-  font-size: 0.9em;
-  margin-top: 2px;
+  color: #d90f06;
+  margin: 5px 0 0 5px;
 `
