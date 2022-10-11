@@ -1,7 +1,7 @@
 import React from 'react'
 
 import LoadingGif from 'assets/loading-unscreen.gif'
-import { LoadingSpinner } from './styles'
+import * as S from './styles'
 
 export const Loading = ({ isVehicle }: any) => {
   return (
@@ -9,7 +9,7 @@ export const Loading = ({ isVehicle }: any) => {
       {isVehicle ? (
         <img src={LoadingGif} alt="Gif Loading" />
       ) : (
-        <LoadingSpinner></LoadingSpinner>
+        <S.LoadingSpinner></S.LoadingSpinner>
       )}
     </>
   )

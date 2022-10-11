@@ -1,10 +1,10 @@
 import React from 'react'
-import { Container } from './styles'
+import * as S from './styles'
 
 export const TextArea: React.FC<any> = React.forwardRef(
   ({ type, name, id, placeholder, label, error, ...props }, ref) => {
     return (
-      <Container>
+      <S.Container>
         <label htmlFor={name}>{label}</label>
         <textarea
           ref={ref}
@@ -15,7 +15,7 @@ export const TextArea: React.FC<any> = React.forwardRef(
           placeholder={placeholder}
         ></textarea>
         {!!error && <div>{error.message}</div>}
-      </Container>
+      </S.Container>
     )
   }
 )

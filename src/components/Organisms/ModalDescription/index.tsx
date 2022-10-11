@@ -5,14 +5,7 @@ import Swal from 'sweetalert2'
 import { Button } from 'components/Atoms/Button'
 import api from 'services/api'
 import Loading from 'common/assets/loading-unscreen.gif'
-import {
-  Container,
-  ModalContainer,
-  ModalHeader,
-  ButtonClose,
-  ContainerButtonsPersonalAds,
-  Description,
-} from './styles'
+import * as S from './styles'
 
 export const ModalDescription = ({
   closeModal,
@@ -54,26 +47,26 @@ export const ModalDescription = ({
   }
 
   return (
-    <Container>
+    <S.Container>
       {!loading ? (
-        <ModalContainer>
-          <ModalHeader>
+        <S.ModalContainer>
+          <S.ModalHeader>
             <h2>
               Descrição {carData.brand} {carData.model} {carData.year}
             </h2>
-            <ButtonClose onClick={closeModal}>
+            <S.ButtonClose onClick={closeModal}>
               <FiX size={28} color="#000" />
-            </ButtonClose>
-          </ModalHeader>
-          <Description>{carData.description}</Description>
-          <Description style={{ marginBottom: 0 }}>
+            </S.ButtonClose>
+          </S.ModalHeader>
+          <S.Description>{carData.description}</S.Description>
+          <S.Description style={{ marginBottom: 0 }}>
             Anunciado por{' '}
             <span style={{ fontWeight: 'bold' }}>{carData.user_name}</span>
-          </Description>
+          </S.Description>
           {carData.user_allow_show_email && (
-            <Description>
+            <S.Description>
               E-mail do anunciante: {carData.user_email}
-            </Description>
+            </S.Description>
           )}
 
           {!myAds ? (
@@ -89,7 +82,7 @@ export const ModalDescription = ({
               <Button>Entrar em contato</Button>
             </a>
           ) : (
-            <ContainerButtonsPersonalAds>
+            <S.ContainerButtonsPersonalAds>
               <Button onClick={() => updateVehicle(carData)}>Editar</Button>
               <Button
                 onClick={() => deleteVehicle(carData.id)}
@@ -97,12 +90,12 @@ export const ModalDescription = ({
               >
                 Deletar
               </Button>
-            </ContainerButtonsPersonalAds>
+            </S.ContainerButtonsPersonalAds>
           )}
-        </ModalContainer>
+        </S.ModalContainer>
       ) : (
         <Loading />
       )}
-    </Container>
+    </S.Container>
   )
 }
