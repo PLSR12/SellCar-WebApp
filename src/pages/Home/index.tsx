@@ -13,6 +13,7 @@ export function Home() {
   const [filteredCars, setFilteredCars] = useState([])
   const [loadingCars, setLoadingCars] = useState(true)
   const [loadingCategories, setLoadingCategories] = useState(true)
+  const [search, setSearch] = useState<string>('')
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -54,13 +55,27 @@ export function Home() {
       setFilteredCars(cars)
     } else {
       const newFilteredCars = cars.filter(
-        (car: { category_id: number }) =>
-          car.category_id === activeCategory
+        (car: { category_id: number }) => car.category_id === activeCategory
       )
 
       setFilteredCars(newFilteredCars)
     }
   }, [activeCategory, cars])
+
+  const lowerSearch = search.toLowerCase()
+
+  const carsFiltered = filteredCars.filter(
+    (car: any) =>
+      car.brand.toLowerCase().includes(lowerSearch) ||
+      car.model.toLowerCase().includes(lowerSearch) ||
+      car.user_name.toLowerCase().includes(lowerSearch) ||
+      car.price.toString().includes(lowerSearch) ||
+      car.version.toLowerCase().includes(lowerSearch) ||
+      car.gear.toLowerCase().includes(lowerSearch) ||
+      car.year.toString().includes(lowerSearch) ||
+      car.km.toString().includes(lowerSearch) ||
+      car.description.toLowerCase().includes(lowerSearch)
+  )
 
   return (
     <>
@@ -85,20 +100,30 @@ export function Home() {
 
         <h1>Anunciados</h1>
 
+        <S.ContainerSearch>
+          <S.SearchIcon />
+          <S.InputSearch
+            type="text"
+            placeholder="Pesquise por veículos"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </S.ContainerSearch>
+
         <S.ContainerCars>
           {!loadingCars ? (
-            filteredCars.map((car: { id: number }) => (
+            carsFiltered.map((car: { id: number }) => (
               <Organisms.CardVehicle key={car.id} car={car} />
             ))
           ) : (
             <Molecules.Loading isVehicle />
           )}
 
-          {!filteredCars.length && !loadingCars && (
-            <S.InfoCar style={{ color: '#fff', fontWeight: '700' }}>
-              Ops... Nenhum veículo anunciado ainda
-            </S.InfoCar>
-          )}
+          {!filteredCars.length ||
+            (!carsFiltered && !loadingCars && (
+              <S.InfoCar style={{ color: '#fff', fontWeight: '700' }}>
+                Ops... Nenhum veículo anunciado ainda
+              </S.InfoCar>
+            ))}
         </S.ContainerCars>
       </S.Container>
     </>

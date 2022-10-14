@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { MdSearch } from 'react-icons/md'
 
 export const Container = styled.div`
   background: #fff;
@@ -13,6 +14,35 @@ export const Container = styled.div`
   }
 `
 
+export const ContainerSearch = styled.div`
+  height: 40px;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  color: #000;
+  align-items: center;
+  justify-content: center;
+  background: #cacaca;
+  border-radius: 5px;
+  padding: 0 5px;
+`
+export const SearchIcon = styled(MdSearch)`
+  font-size: 25px;
+  color: #000;
+  margin-right: 10px;
+`
+export const InputSearch = styled.input`
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  outline: none;
+  ::placeholder {
+    color: #000;
+  }
+`
 export const ContainerCategory = styled.div`
   width: 100%;
   overflow: auto;
