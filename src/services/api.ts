@@ -1,7 +1,8 @@
 import axios from 'axios'
+import envioriments from 'common/configs/envioriments.json'
 
 const apiCarSell = axios.create({
-  baseURL: 'http://localhost:3100',
+  baseURL: envioriments.REACT_API_URL,
 })
 
 apiCarSell.interceptors.request.use(async (config: any) => {
