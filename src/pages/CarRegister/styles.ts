@@ -18,7 +18,7 @@ export const ContainerItems = styled.div`
   form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 20px;
 
     @media (max-width: 750px) {
       display: grid;
