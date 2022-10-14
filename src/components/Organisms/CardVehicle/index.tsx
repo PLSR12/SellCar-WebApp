@@ -30,8 +30,8 @@ export function CardVehicle({ car, filteredCars, setCars, myAds }: any) {
       text: 'Não será possível reverter isso',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#620dd9',
+      cancelButtonColor: '#ff1900',
       confirmButtonText: 'Sim, deletar',
       cancelButtonText: 'Cancelar',
     }).then(async (result: any) => {
@@ -134,7 +134,7 @@ export function CardVehicle({ car, filteredCars, setCars, myAds }: any) {
             </Button>
             <Button
               onClick={() => deleteVehicle(car.id)}
-              style={{ background: '#e74c3c', borderRadius: '0 5px 5px 0' }}
+              style={{ background: '#ff1900', borderRadius: '0 5px 5px 0' }}
             >
               Deletar
             </Button>

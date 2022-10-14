@@ -25,8 +25,8 @@ export const ModalDescription = ({
       text: 'Não será possível reverter isso',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#620dd9',
+      cancelButtonColor: '#ff1900',
       confirmButtonText: 'Sim, deletar',
       cancelButtonText: 'Cancelar',
     }).then(async (result) => {
@@ -86,7 +86,7 @@ export const ModalDescription = ({
               <Button onClick={() => updateVehicle(carData)}>Editar</Button>
               <Button
                 onClick={() => deleteVehicle(carData.id)}
-                style={{ background: '#e74c3c' }}
+                style={{ background: '#ff1900' }}
               >
                 Deletar
               </Button>

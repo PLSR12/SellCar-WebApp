@@ -13,7 +13,7 @@ export const Select: React.FC<any> = React.forwardRef(
           placeholder={placeholder}
           {...props}
         >
-          <option value=""></option>
+          <option value="">Selecione:</option>
           {options.map((option: any, index: number) => (
             <option key={index} value={option.id}>
               {option.label}
