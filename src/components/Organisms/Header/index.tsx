@@ -21,13 +21,6 @@ export const Header = () => {
         <h2> CAR</h2>
       </div>
 
-      <S.DivSearch onClick={() => navigate('/pesquisar-veiculo')}>
-        <S.SearchIcon />
-        <S.TextHeader>
-          {window.innerWidth > 940 ? 'Pesquisar por veículos' : ''}
-        </S.TextHeader>
-      </S.DivSearch>
-
       <S.ContainerText style={{ justifyContent: 'end' }}>
         {userData.name ? (
           <>
