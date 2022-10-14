@@ -33,6 +33,14 @@ export default function Routes() {
           </PrivateRoute>
         }
       />
+      <Route
+        path="/editar-usuario/:id"
+        element={
+          <PrivateRoute>
+            <Pages.EditUser />
+          </PrivateRoute>
+        }
+      />
     </RoutesWrapper>
   )
 }
