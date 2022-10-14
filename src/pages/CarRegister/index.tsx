@@ -16,14 +16,13 @@ import { maskCurrencyInput } from 'common/utils/formatCurrency'
 
 export function CarRegister() {
   const [categories, setCategories] = useState([])
-  const [gearOption, setGearOption] = useState([
-    { id: 'Automático', label: 'Automático' },
-    { id: 'Manual', label: 'Manual' },
-  ])
   const [file, setFile] = useState<any>([])
   const navigate = useNavigate()
-
   const { userData } = useUser()
+  const gearOption = [
+    { id: 'Automático', label: 'Automático' },
+    { id: 'Manual', label: 'Manual' },
+  ]
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -188,7 +187,6 @@ export function CarRegister() {
             <Atoms.Select
               label="Categoria"
               error={errors.category_id}
-              placeholder="Ex: 7.500"
               {...register('category_id')}
               options={categories}
             />
@@ -198,7 +196,7 @@ export function CarRegister() {
               {...register('price')}
               error={errors.price}
               onInput={maskCurrencyInput}
-              placeholder="Digite o Preço:"
+              placeholder="Ex: 75.000"
             />
             <div>
               <Dropzone onDrop={handleDrop}>
