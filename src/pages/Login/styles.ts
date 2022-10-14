@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-interface ErrorMessage {
-  error: any
-}
-
 export const Container = styled.div`
   height: 100vh;
   width: 100%;
