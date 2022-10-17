@@ -5,17 +5,16 @@ import { useForm } from 'react-hook-form'
 import toast, { Toaster } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
-
 import * as Atoms from 'components/Atoms'
 import * as Organisms from 'components/Organisms'
 import { useUser } from 'hooks/UserContext'
 import api from 'services/api'
-import { normalizePrice } from 'common/utils/masks'
 import * as S from './styles'
 import { maskCurrencyInput } from 'common/utils/formatCurrency'
+import { IAllCategories } from 'models/ICategories'
 
 export function CarRegister() {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState<IAllCategories[]>([])
   const [file, setFile] = useState<any>([])
   const navigate = useNavigate()
   const { userData } = useUser()
@@ -65,18 +64,10 @@ export function CarRegister() {
   const {
     register,
     handleSubmit,
-    watch,
-    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   })
-
-  const priceValue = watch('price')
-
-  useEffect(() => {
-    setValue('price', normalizePrice(priceValue))
-  }, [priceValue, setValue])
 
   const onSubmit = async (clientData: any) => {
     const carDataFormData = new FormData()
