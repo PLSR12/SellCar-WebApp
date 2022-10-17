@@ -1,1 +1,1 @@
-{ "REACT_API_URL": "http://localhost:3100" }
+{ "REACT_API_URL": "https://api-sellcar-production.up.railway.app/" }
