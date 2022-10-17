@@ -16,7 +16,7 @@ export const Header = () => {
 
   return (
     <S.Container>
-      <div className="title-container">
+      <div className="title-container" onClick={() => navigate('/')}>
         <h1>SELL</h1>
         <h2> CAR</h2>
       </div>
