@@ -18,35 +18,22 @@ export function EditUser() {
   const [states, setStates] = useState<any>([])
   const [cities, setCities] = useState<any>([])
   const [formValues, setFormValues] = useState<any>({})
+  const [stateSelect, setStateSelect] = useState<string>('')
   const [dataUser, setDataUser] = useState<any>([])
-
   const navigate = useNavigate()
-
   const { id } = useParams()
   const { userData, putUserData } = useUser()
 
   useEffect(() => {
     fetchStates().then((states: any) => {
-      const statesOptions = states.map((state: any) => {
-        return {
-          id: state.id,
-          label: state.nome,
-        }
-      })
-      setStates(statesOptions)
+      setStates(states)
       setFormValues({ state: dataUser.state })
     })
   }, [dataUser])
 
   useEffect(() => {
     fetchCities(formValues.state).then((cities) => {
-      const citiesOptions = cities.map((city: any) => {
-        return {
-          id: city.id,
-          label: city.nome,
-        }
-      })
-      setCities(citiesOptions)
+      setCities(cities)
     })
   }, [formValues.state])
 
@@ -56,6 +43,8 @@ export function EditUser() {
     const { value, name } = event.target
     setFormValues({ ...formValues, [name]: value })
   }
+
+  console.log(stateSelect)
 
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
@@ -110,7 +99,6 @@ export function EditUser() {
         city: clientData.city,
         allow_show_email: clientData.allow_show_email,
       })
-
       putUserData(data)
 
       toast.remove()
@@ -163,23 +151,51 @@ export function EditUser() {
               {...register('number')}
               error={errors.number}
             />
+            <span>
+              <S.Label>Estado</S.Label>
+              {states.length > 0 && (
+                <S.Select
+                  id="state"
+                  {...register('state')}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Selecione seu estado</option>
+                  {states &&
+                    states.map((state: any) => {
+                      const { sigla, nome } = state
+                      return (
+                        <option key={sigla} value={sigla}>
+                          {nome}
+                        </option>
+                      )
+                    })}
+                </S.Select>
+              )}
 
-            <Atoms.Select
-              options={states}
-              label="Estados"
-              {...register('state')}
-              error={errors.state}
-              onChange={handleInputChange}
-            />
-
-            {cities.length > 0 && (
-              <Atoms.Select
-                options={cities}
-                label="Cidades"
-                error={errors.city?.message}
-                {...register('city')}
-              />
-            )}
+              <Atoms.ErrorMessage>{errors.state?.message}</Atoms.ErrorMessage>
+            </span>
+            <span>
+              {cities.length > 0 && (
+                <>
+                  <S.Label>Cidade</S.Label>
+                  <S.Select id="city" {...register('city')}>
+                    <option value="">Selecione sua cidade</option>
+                    {cities &&
+                      cities.map((city: any) => {
+                        const { id, nome } = city
+                        return (
+                          <option key={id} value={nome}>
+                            {nome}
+                          </option>
+                        )
+                      })}
+                  </S.Select>
+                  <Atoms.ErrorMessage>
+                    {errors.city?.message}
+                  </Atoms.ErrorMessage>
+                </>
+              )}
+            </span>
 
             <span>
               <input
