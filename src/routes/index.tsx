@@ -9,6 +9,8 @@ export default function Routes() {
     <RoutesWrapper>
       <Route path="/" element={<Pages.Home />} />
       <Route path="/login" element={<Pages.Login />} />
+      <Route path="/cadastro" element={<Pages.Register />} />
+
       <Route
         path="/meus-anuncios"
         element={
