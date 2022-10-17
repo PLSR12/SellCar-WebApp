@@ -15,16 +15,17 @@ import { ModalDescription } from '../ModalDescription'
 import api from 'services/api'
 import formatDate from 'common/utils/formatDate'
 import * as S from './styles'
+import { IAllCars } from 'models/ICars'
 
 export function CardVehicle({ car, filteredCars, setCars, myAds }: any) {
-  const [data, setData] = useState({})
-  const [showModal, setShowModal] = useState(false)
+  const [data, setData] = useState<IAllCars[]>([])
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   const navigate = useNavigate()
 
-  const onlyNumbers = (str: any) => str.replace(/[^0-9]/g, '')
+  const onlyNumbers = (str: string) => str.replace(/[^0-9]/g, '')
 
-  const deleteVehicle = async (carId: any) => {
+  const deleteVehicle = async (carId: number) => {
     Swal.fire({
       title: 'Você realmente quer deletar este anúncio?',
       text: 'Não será possível reverter isso',
@@ -47,7 +48,7 @@ export function CardVehicle({ car, filteredCars, setCars, myAds }: any) {
         await api.delete(`cars/${carId}`)
 
         const carsUpdateFetch = filteredCars.filter(
-          (car: any) => car.id !== carId
+          (car: { id: number }) => car.id !== carId
         )
         setCars(carsUpdateFetch)
 
@@ -76,7 +77,7 @@ export function CardVehicle({ car, filteredCars, setCars, myAds }: any) {
         {car.path && (
           <S.CarImage src={car.url} alt={`Imagem ${car.brand} ${car.model}`} />
         )}
-        <S.CarPrice>R${car.price}</S.CarPrice>
+        <S.CarPrice>{car.price}</S.CarPrice>
         <S.InfoCar>
           <BiMap style={{ fontSize: 20, marginRight: '5px' }} />
           {car.user_city}, {car.user_state}
