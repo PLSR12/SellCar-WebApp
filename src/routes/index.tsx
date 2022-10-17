@@ -41,6 +41,15 @@ export default function Routes() {
           </PrivateRoute>
         }
       />
+
+      <Route
+        path="/editar-veiculo/:id"
+        element={
+          <PrivateRoute>
+            <Pages.EditVehicle />
+          </PrivateRoute>
+        }
+      />
     </RoutesWrapper>
   )
 }
