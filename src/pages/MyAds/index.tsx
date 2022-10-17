@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
-
 import * as Organisms from 'components/Organisms'
 import * as Molecules from 'components/Molecules'
 import { useUser } from 'hooks/UserContext'
 import api from 'services/api'
 import formatNumber from 'common/utils/formatNumber'
 import * as S from './styles'
+import { IAllCars } from 'models/ICars'
 
 export function MyAds() {
-  const [cars, setCars] = useState<any>([])
-  const [filteredCars, setFilteredCars] = useState<any>([])
+  const [cars, setCars] = useState<IAllCars[]>([])
+  const [filteredCars, setFilteredCars] = useState<IAllCars[]>([])
   const [loadingCars, setLoadingCars] = useState<boolean>(true)
-
   const { userData } = useUser()
 
   useEffect(() => {
@@ -34,7 +33,7 @@ export function MyAds() {
 
   useEffect(() => {
     const newFilteredCars = cars.filter(
-      (car: { user_email: any }) => car.user_email === userData.email
+      (car: { user_email: string }) => car.user_email === userData.email
     )
 
     setFilteredCars(newFilteredCars)

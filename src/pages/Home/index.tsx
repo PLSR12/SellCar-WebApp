@@ -5,14 +5,16 @@ import * as Molecules from 'components/Molecules'
 import api from 'services/api'
 import formatNumber from 'common/utils/formatNumber'
 import * as S from './styles'
+import { IAllCategories } from 'models/ICategories'
+import { IAllCars } from 'models/ICars'
 
 export function Home() {
-  const [categories, setCategories] = useState([])
-  const [activeCategory, setActiveCategory] = useState(0)
-  const [cars, setCars] = useState([])
-  const [filteredCars, setFilteredCars] = useState([])
-  const [loadingCars, setLoadingCars] = useState(true)
-  const [loadingCategories, setLoadingCategories] = useState(true)
+  const [categories, setCategories] = useState<IAllCategories[]>([])
+  const [activeCategory, setActiveCategory] = useState<number>(0)
+  const [cars, setCars] = useState<IAllCars[]>([])
+  const [filteredCars, setFilteredCars] = useState<IAllCars[]>([])
+  const [loadingCars, setLoadingCars] = useState<boolean>(true)
+  const [loadingCategories, setLoadingCategories] = useState<boolean>(true)
   const [search, setSearch] = useState<string>('')
 
   useEffect(() => {
