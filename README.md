@@ -36,7 +36,6 @@ Made with ♥ by Pedro Dos Santos :wave: [Get in touch!](https://www.linkedin.co
 ### Setup de ambiente:
 
 - [Node LTS](https://nodejs.org/en/)
-- [Yarn 1.x](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
 
 ### Como rodar na minha máquina?
 
