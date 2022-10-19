@@ -108,7 +108,7 @@ export function CardVehicle({ car, filteredCars, setCars, myAds }: any) {
           <a
             href={`https://api.whatsapp.com/send?phone=55${onlyNumbers(
               car.user_number
-            )}&text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20Car%20Sell.%20Me%20interessei%20pelo%20${
+            )}&text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20Sell%20Car.%20Me%20interessei%20pelo%20${
               car.model
             },%20podemos%20conversar%20melhor?`}
             target="_blank"
