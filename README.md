@@ -30,3 +30,17 @@ O projeto tem uma proposta similar ao da OLX, com os anúncios e a "conexão" en
 ![TYPESCRIPT](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 Made with ♥ by Pedro Dos Santos :wave: [Get in touch!](https://www.linkedin.com/in/pedro-lucas-dos-santos/)
+
+## Requisitos para rodar o projeto
+
+### Setup de ambiente:
+
+- [Node LTS](https://nodejs.org/en/)
+- [Yarn 1.x](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
+
+### Como rodar na minha máquina?
+
+- Clone o projeto
+- Rode `npm install`
+- Rode `npm start`
+- Pronto 🎉
